@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="d6b903d6-6e62-4919-89b4-4b4bf1f7ddfd" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="raiseerrorpocFlow" doc:id="f1460042-8903-473b-8779-3194bf84615b" >
+		<http:listener doc:name="Listener" doc:id="16df70db-1e81-488d-96ac-12bb8d981fbf" config-ref="HTTP_Listener_config" path="/test"/>
+		<logger level="INFO" doc:name="Logger" doc:id="f4214d4c-5684-4a2e-b7bc-1b505ead2730" />
+		<raise-error doc:name="Raise error" doc:id="98f56608-3f6d-4484-935c-7825431e8223" />
+		<logger level="INFO" doc:name="Logger" doc:id="a736bb58-dcf5-494b-8363-64e2e2641b25" />
+	</flow>
+</mule>
